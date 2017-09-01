@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jnshu.dao.UserMapper">
+    <insert id="add" parameterType="User" useGeneratedKeys="true" keyProperty="id" >
+        insert into user_first (name,qq,style,estimated_time,graduate_institutions,online_id,daily_link,pledge,senior_tutor,source,create_at,updata_at)
+         values (#{name},#{qq},#{style},#{estimated_time},#{graduate_institutions},#{online_id},#{daily_link},#{pledge},#{senior_tutor},#{source},#{create_at},#{updata_at})
+    </insert>
+
+    <delete id="delete" parameterType="User" >
+        delete from user_first where id= #{id}
+    </delete>
+
+    <select id="get" parameterType="int" resultType="User">
+        select * from   user_first  where id= #{id}
+    </select>
+    <update id="update" parameterType="User" >
+        update user_first set name=#{name},qq=#{qq},style=#{style},estimated_time=#{estimated_time},graduate_institutions=#{graduate_institutions},online_id=#{online_id},daily_link=#{daily_link},pledge=#{pledge},senior_tutor=#{senior_tutor},source=#{source},create_at=#{create_at},updata_at=#{updata_at} where id=#{id}
+    </update>
+
+    <update id="update2" parameterType="User" >
+        update user_first set name=#{name},qq=#{qq},style=#{style},estimated_time=#{estimated_time},graduate_institutions=#{graduate_institutions},online_id=#{online_id},daily_link=#{daily_link},pledge=#{pledge},senior_tutor=#{senior_tutor},source=#{source},create_at=#{create_at},updata_at=#{updata_at} where id=#{id}
+    </update>
+
+    <select id="list" resultType="User">
+        select * from   user_first
+    </select>
+</mapper>
